@@ -12,7 +12,7 @@ function App() {
   const reload = () => window.location.reload();
 
   return (
-    <BrowserRouter basename="/team01-5pm-2">
+    <BrowserRouter basename="/team01-s23-5pm-2">
       <Routes>
         <Route path="/storybook-static" onEnter={reload}/>
         <Route exact path="/" element={<HomePage />} />

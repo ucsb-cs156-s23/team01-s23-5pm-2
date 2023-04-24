@@ -16,8 +16,6 @@ const BookForm = ({initialContents, submitAction, buttonLabel="Create"}) => {
 
     const testIdPrefix = "BookForm";
 
-    console.log("errors: ", errors)
-
     return (
         <Form onSubmit={handleSubmit(submitAction)}>
             {initialContents && (

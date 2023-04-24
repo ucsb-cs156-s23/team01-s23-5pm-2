@@ -16,6 +16,8 @@ const BookForm = ({initialContents, submitAction, buttonLabel="Create"}) => {
 
     const testIdPrefix = "BookForm";
 
+    console.log("errors: ", errors)
+
     return (
         <Form onSubmit={handleSubmit(submitAction)}>
             {initialContents && (
@@ -32,7 +34,6 @@ const BookForm = ({initialContents, submitAction, buttonLabel="Create"}) => {
                 </Form.Group>
             )
             }
-
             <Form.Group className="mb-3" >
                 <Form.Label htmlFor="title">Title</Form.Label>
                 <Form.Control
@@ -57,10 +58,15 @@ const BookForm = ({initialContents, submitAction, buttonLabel="Create"}) => {
                 <Form.Control
                     data-testid={testIdPrefix + "-description"}
                     id="description"
-                    type="text"
+                    as="textarea"
+                    style={{height:'8rem'}}
                     isInvalid={Boolean(errors.description)}
                     {...register("description", {
-                        required: "Description is required."
+                        required: "Description is required.",
+                        maxLength: {
+                            value: 140,
+                            message: "Max length 140 characters"
+                        }
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
@@ -88,7 +94,7 @@ const BookForm = ({initialContents, submitAction, buttonLabel="Create"}) => {
                     data-testid={testIdPrefix + "-date"}
                     id="date"
                     type="date"
-                    max={new Date().toISOString().slice(0, 10)}
+                    max ={new Date().toISOString().slice(0, 10)}
                     isInvalid={Boolean(errors.date)}
                     {...register("date", {
                         required: "Date is required.",
@@ -101,7 +107,7 @@ const BookForm = ({initialContents, submitAction, buttonLabel="Create"}) => {
             <Form.Group className="mb-3" >
                 <Form.Label htmlFor="publisher">Publisher</Form.Label>
                 <Form.Control
-                    data-testid={testIdPrefix + "-author"}
+                    data-testid={testIdPrefix + "-publisher"}
                     id="publisher"
                     type="text"
                     isInvalid={Boolean(errors.publisher)}

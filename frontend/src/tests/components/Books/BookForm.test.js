@@ -2,6 +2,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import BookForm from "main/components/Books/BookForm";
+import { bookFixtures } from "fixtures/bookFixtures";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 
@@ -63,6 +64,27 @@ describe("BookForm tests", () => {
         });
     });
 
+    test("renders correctly when passing in initialContents", async () => {
+        render(
+            <QueryClientProvider client={queryClient}>
+                <Router>
+                    <BookForm initialContents={bookFixtures.oneBook} />
+                </Router>
+            </QueryClientProvider>
+        );
+
+        
+        // const htmlElement = screen.findAllByTestId(`${TEST_ID}-id`);
+        // console.log(htmlElement)
+        expect(screen.getByTestId(`${TEST_ID}-id`)).toBeInTheDocument();
+        // expect(screen.getByText(`Id`)).toBeInTheDocument();
+          // Check if all components are rendered properly in DOM
+        [...EXPECTED_HEADERS, ...EXPECTED_BUTTON_TEXT].forEach((text)=> {
+            const formComponent = screen.getByTestId(`${TEST_ID}-${text.toLowerCase()}`)
+            expect(formComponent).toBeInTheDocument();
+        });
+    });
+
     test("that navigate(-1) is called when Cancel is clicked", async () => {
         render(
             <QueryClientProvider client={queryClient}>
@@ -78,15 +100,5 @@ describe("BookForm tests", () => {
         fireEvent.click(cancelButton);
         await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith(-1));
     });
-
-
-
-
-
-
-
-
-
-
 });
 

@@ -78,15 +78,5 @@ describe("BookForm tests", () => {
         fireEvent.click(cancelButton);
         await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith(-1));
     });
-
-
-
-
-
-
-
-
-
-
 });
 

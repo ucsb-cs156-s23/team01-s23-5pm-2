@@ -1,6 +1,6 @@
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 import RestaurantForm from "main/components/Restaurants/RestaurantForm";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import { restaurantUtils } from 'main/utils/restaurantUtils';
 
 export default function RestaurantCreatePage() {

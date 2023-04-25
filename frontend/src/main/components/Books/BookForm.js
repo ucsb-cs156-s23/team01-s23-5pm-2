@@ -110,7 +110,7 @@ const BookForm = ({initialContents, submitAction, buttonLabel="Create"}) => {
                     type="text"
                     isInvalid={Boolean(errors.publisher)}
                     {...register("publisher", {
-                        required: "Publisher name is required."
+                        required: "Publisher is required."
                     })}
                 />
                 <Form.Control.Feedback type="invalid">

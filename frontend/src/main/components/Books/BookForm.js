@@ -3,7 +3,7 @@ import {Button, Form} from 'react-bootstrap';
 import {useForm} from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
-const BookForm = ({initialContents, submitAction, buttonLabel="Create"}) => {
+const BookForm = ({initialContents, submitAction, buttonLabel = "Create"}) => {
     const navigate = useNavigate();
 
     // Stryker disable all
@@ -60,11 +60,7 @@ const BookForm = ({initialContents, submitAction, buttonLabel="Create"}) => {
                     style={{height:'8rem'}}
                     isInvalid={Boolean(errors.description)}
                     {...register("description", {
-                        required: "Description is required.",
-                        maxLength: {
-                            value: 140,
-                            message: "Max length 140 characters"
-                        }
+                        required: "Description is required."
                     })}
                 />
                 <Form.Control.Feedback type="invalid">

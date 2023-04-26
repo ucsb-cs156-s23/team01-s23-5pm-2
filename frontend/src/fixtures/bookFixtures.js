@@ -4,9 +4,9 @@ const bookFixtures = {
         {
        "id": 1,
         "title": "The Boys in the Boat",
-        "description": "The Boys in the Boat is a true story based on the struggles and sacrifices made by the University of Washington rowing team to compete at the highest possible level, rowing at the 1936 Summer Olympics – Men's eight",
+        "description": "The Boys in the Boat is a true story based on the struggles and sacrifices made by the University of Washington rowing team to compete at the highest possible level, rowing at the 1936 Summer Olympics – Men's eight.",
         "author": "Daniel James Brown",
-        "date": "June 4, 2013",
+        "date": "2013-07-04",
         "publisher": "Penguin Books"      
         }
     ],
@@ -16,7 +16,7 @@ const bookFixtures = {
         "title": "1984",
         "description": "1984 is a dystopian novel by George Orwell, published in 1949. It is set in a totalitarian society and follows the story of Winston Smith as he rebels against the oppressive government.",
         "author": "George Orwell",
-        "date": "June 8, 1949",
+        "date": "1949-06-08",
         "publisher": "Secker & Warburg"
         },
         {
@@ -24,7 +24,7 @@ const bookFixtures = {
         "title": "To Kill a Mockingbird",
         "description": "To Kill a Mockingbird is a novel by Harper Lee, published in 1960. It is set in the 1930s in a small town in Alabama and explores themes of racism, injustice, and morality through the eyes of a young girl named Scout Finch.",
         "author": "Harper Lee",
-        "date": "July 11, 1960",
+        "date": "1960-07-11",
         "publisher": "J. B. Lippincott & Co."
         },
         {
@@ -32,7 +32,7 @@ const bookFixtures = {
         "title": "The Hitchhiker's Guide to the Galaxy",
         "description": "The Hitchhiker's Guide to the Galaxy is a science fiction novel by Douglas Adams, published in 1979. It follows the misadventures of an unwitting human and his alien friend as they travel through space.",
         "author": "Douglas Adams",
-        "date": "October 12, 1979",
+        "date": "1979-10-12",
         "publisher": "Pan Books"
         }
     ]

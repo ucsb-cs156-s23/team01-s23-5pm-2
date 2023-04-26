@@ -30,6 +30,8 @@ describe("BookForm tests", () => {
             </QueryClientProvider>
         );
 
+        expect(await screen.findByText(/Create/)).toBeInTheDocument();
+
         EXPECTED_HEADERS.forEach((headerText) => {
             const header = screen.getByText(headerText);
             expect(header).toBeInTheDocument();
@@ -50,6 +52,8 @@ describe("BookForm tests", () => {
                 </Router>
             </QueryClientProvider>
         );
+
+        expect(await screen.findByText(/Create/)).toBeInTheDocument();
 
         const submitButton = screen.getByTestId(`${TEST_ID}-submit`);
         expect(submitButton).toBeInTheDocument();
@@ -73,16 +77,27 @@ describe("BookForm tests", () => {
             </QueryClientProvider>
         );
 
-        
-        // const htmlElement = screen.findAllByTestId(`${TEST_ID}-id`);
-        // console.log(htmlElement)
         expect(screen.getByTestId(`${TEST_ID}-id`)).toBeInTheDocument();
-        // expect(screen.getByText(`Id`)).toBeInTheDocument();
-          // Check if all components are rendered properly in DOM
+        expect(screen.getByText('Id')).toBeInTheDocument();
+
         [...EXPECTED_HEADERS, ...EXPECTED_BUTTON_TEXT].forEach((text)=> {
             const formComponent = screen.getByTestId(`${TEST_ID}-${text.toLowerCase()}`)
             expect(formComponent).toBeInTheDocument();
         });
+       
+    });
+
+    test("renders correctly when passing in initialContents", async () => {
+        const testButtonText = "some tests"
+        render(
+            <QueryClientProvider client={queryClient}>
+                <Router>
+                    <BookForm buttonLabel={testButtonText} />
+                </Router>
+            </QueryClientProvider>
+        );
+
+        expect(screen.getByText(testButtonText)).toBeInTheDocument();
     });
 
     test("that navigate(-1) is called when Cancel is clicked", async () => {

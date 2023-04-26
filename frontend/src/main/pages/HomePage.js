@@ -1,7 +1,7 @@
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 
-export default function HomePage() {
 
+export default function HomePage() {
   return (
     <BasicLayout>
       <div className="pt-2">

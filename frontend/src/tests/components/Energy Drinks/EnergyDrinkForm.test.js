@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import EnergyDrinkForm from "main/components/Energy Drink/EnergyDrinkForm";
+import EnergyDrinkForm from "main/components/Energy Drinks/EnergyDrinkForm";
 import { energydrinkFixtures } from "fixtures/energydrinkFixtures";
 
 import { QueryClient, QueryClientProvider } from "react-query";

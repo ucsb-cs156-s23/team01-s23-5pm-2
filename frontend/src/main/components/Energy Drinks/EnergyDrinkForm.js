@@ -89,8 +89,7 @@ function EnergyDrinkForm({ initialContents, submitAction, buttonLabel = "Create"
                 </Form.Control.Feedback>
             </Form.Group>
 
-            
-
+        
             <Button
                 type="submit"
                 data-testid={testIdPrefix + "-submit"}

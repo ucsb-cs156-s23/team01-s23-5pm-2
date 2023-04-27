@@ -24,8 +24,8 @@ jest.mock('main/utils/movieUtils', () => {
                 return {
                     movie: {
                         id: 3,
-                        name: "Freebirds",
-                        description: "Burritos"
+                        name: "The Emperor's New Groove",
+                        director: "Burritos"
                     }
                 }
             }
@@ -59,7 +59,7 @@ describe("MovieEditPage tests", () => {
         );
 
         expect(screen.getByTestId("MovieForm-name")).toBeInTheDocument();
-        expect(screen.getByDisplayValue('Freebirds')).toBeInTheDocument();
+        expect(screen.getByDisplayValue('The Emperor\'s New Groove')).toBeInTheDocument();
         expect(screen.getByDisplayValue('Burritos')).toBeInTheDocument();
     });
 
@@ -70,8 +70,8 @@ describe("MovieEditPage tests", () => {
         mockUpdate.mockReturnValue({
             "movie": {
                 id: 3,
-                name: "South Coast Deli (Goleta)",
-                description: "Sandwiches, Salads and more"
+                name: "The Emperor's New Groove",
+                director: "Mark Dindal"
             }
         });
 
@@ -87,15 +87,15 @@ describe("MovieEditPage tests", () => {
         expect(nameInput).toBeInTheDocument();
 
 
-        const descriptionInput = screen.getByLabelText("Description");
-        expect(descriptionInput).toBeInTheDocument();
+        const directorInput = screen.getByLabelText("Director");
+        expect(directorInput).toBeInTheDocument();
 
         const updateButton = screen.getByText("Update");
         expect(updateButton).toBeInTheDocument();
 
         await act(async () => {
-            fireEvent.change(nameInput, { target: { value: 'South Coast Deli (Goleta)' } })
-            fireEvent.change(descriptionInput, { target: { value: 'Sandwiches, Salads and more' } })
+            fireEvent.change(nameInput, { target: { value: 'The Emperor\'s New Groove' } })
+            fireEvent.change(directorInput, { target: { value: 'Mark Dindal' } })
             fireEvent.click(updateButton);
         });
 
@@ -105,7 +105,7 @@ describe("MovieEditPage tests", () => {
         // assert - check that the console.log was called with the expected message
         expect(console.log).toHaveBeenCalled();
         const message = console.log.mock.calls[0][0];
-        const expectedMessage =  `updatedMovie: {"movie":{"id":3,"name":"South Coast Deli (Goleta)","description":"Sandwiches, Salads and more"}`
+        const expectedMessage =  `updatedMovie: {"movie":{"id":3,"name":"The Emperor's New Groove","director":"Mark Dindal"}`
 
         expect(message).toMatch(expectedMessage);
         restoreConsole();

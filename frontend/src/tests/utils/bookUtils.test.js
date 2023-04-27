@@ -78,10 +78,10 @@ describe("bookUtils tests", () => {
 
             // arrange
             const threeBooks = bookFixtures.threeBooks;
-            const mockbookCollection = { nextId: 10, books: threeBooks };
+            const mockBookCollection = { nextId: 10, books: threeBooks };
 
             const getItemSpy = jest.spyOn(Storage.prototype, 'getItem');
-            getItemSpy.mockImplementation(createGetItemMock(mockbookCollection));
+            getItemSpy.mockImplementation(createGetItemMock(mockBookCollection));
 
             const setItemSpy = jest.spyOn(Storage.prototype, 'setItem');
             setItemSpy.mockImplementation((_key, _value) => null);
@@ -90,7 +90,7 @@ describe("bookUtils tests", () => {
             const result = bookUtils.get();
 
             // assert
-            expect(result).toEqual(mockbookCollection);
+            expect(result).toEqual(mockBookCollection);
             expect(setItemSpy).not.toHaveBeenCalled();
         });
     });

@@ -40,8 +40,8 @@ describe("MovieCreatePage tests", () => {
         mockAdd.mockReturnValue({
             "movie": {
                 id: 3,
-                name: "The Emperor's New Groove",
-                director: "Mark Dindal"
+                name: "Cinderella",
+                director: "Kenneth Branagh"
             }
         });
 
@@ -64,8 +64,8 @@ describe("MovieCreatePage tests", () => {
         expect(createButton).toBeInTheDocument();
 
         await act(async () => {
-            fireEvent.change(nameInput, { target: { value: 'The Emperor\'s New Groove' } })
-            fireEvent.change(directorInput, { target: { value: 'Mark Dindal' } })
+            fireEvent.change(nameInput, { target: { value: 'Cinderella' } })
+            fireEvent.change(directorInput, { target: { value: 'Kenneth Branagh' } })
             fireEvent.click(createButton);
         });
 
@@ -75,7 +75,7 @@ describe("MovieCreatePage tests", () => {
         // assert - check that the console.log was called with the expected message
         expect(console.log).toHaveBeenCalled();
         const message = console.log.mock.calls[0][0];
-        const expectedMessage =  `createdMovie: {"movie":{"id":3,"name":"The Emperor's New Groove","director":"Mark Dindal"}`
+        const expectedMessage =  `createdMovie: {"movie":{"id":3,"name":"Cinderella","director":"Kenneth Branagh"}`
 
         expect(message).toMatch(expectedMessage);
         restoreConsole();

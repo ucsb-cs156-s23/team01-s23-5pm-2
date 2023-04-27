@@ -24,8 +24,8 @@ jest.mock('main/utils/movieUtils', () => {
                 return {
                     movie: {
                         id: 3,
-                        name: "The Emperor's New Groove",
-                        director: "Burritos"
+                        name: "Cinderella",
+                        director: "Kenneth Branagh"
                     }
                 }
             }
@@ -59,8 +59,8 @@ describe("MovieEditPage tests", () => {
         );
 
         expect(screen.getByTestId("MovieForm-name")).toBeInTheDocument();
-        expect(screen.getByDisplayValue('The Emperor\'s New Groove')).toBeInTheDocument();
-        expect(screen.getByDisplayValue('Burritos')).toBeInTheDocument();
+        expect(screen.getByDisplayValue('Cinderella')).toBeInTheDocument();
+        expect(screen.getByDisplayValue('Kenneth Branagh')).toBeInTheDocument();
     });
 
     test("redirects to /movies on submit", async () => {
@@ -70,8 +70,8 @@ describe("MovieEditPage tests", () => {
         mockUpdate.mockReturnValue({
             "movie": {
                 id: 3,
-                name: "The Emperor's New Groove",
-                director: "Mark Dindal"
+                name: "Cinderella",
+                director: "Kenneth Branagh"
             }
         });
 
@@ -94,8 +94,8 @@ describe("MovieEditPage tests", () => {
         expect(updateButton).toBeInTheDocument();
 
         await act(async () => {
-            fireEvent.change(nameInput, { target: { value: 'The Emperor\'s New Groove' } })
-            fireEvent.change(directorInput, { target: { value: 'Mark Dindal' } })
+            fireEvent.change(nameInput, { target: { value: 'Cinderella' } })
+            fireEvent.change(directorInput, { target: { value: 'Kenneth Branagh' } })
             fireEvent.click(updateButton);
         });
 
@@ -105,7 +105,7 @@ describe("MovieEditPage tests", () => {
         // assert - check that the console.log was called with the expected message
         expect(console.log).toHaveBeenCalled();
         const message = console.log.mock.calls[0][0];
-        const expectedMessage =  `updatedMovie: {"movie":{"id":3,"name":"The Emperor's New Groove","director":"Mark Dindal"}`
+        const expectedMessage =  `updatedMovie: {"movie":{"id":3,"name":"Cinderella","director":"Kenneth Branagh"}`
 
         expect(message).toMatch(expectedMessage);
         restoreConsole();

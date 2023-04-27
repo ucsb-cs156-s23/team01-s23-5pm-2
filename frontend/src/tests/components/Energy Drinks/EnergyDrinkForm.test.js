@@ -7,7 +7,7 @@ import { energydrinkFixtures } from "fixtures/energydrinkFixtures";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 // constants
-const EXPECTED_HEADERS = ["name", "caffeine content per can", "description"];
+const EXPECTED_HEADERS = ["name", "caffeine", "description"];
 const EXPECTED_BUTTON_TEXT = ["Submit", "Cancel"];
 const TEST_ID = "EnergyDrinkForm";
 

@@ -56,20 +56,20 @@ function EnergyDrinkForm({ initialContents, submitAction, buttonLabel = "Create"
                     {errors.name?.message}
                 </Form.Control.Feedback>
             </Form.Group>
-            
+
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="caffeine content per can">Description</Form.Label>
+                <Form.Label htmlFor="caffeine">Caffeine</Form.Label>
                 <Form.Control
-                    data-testid={testIdPrefix + "-caffeine content per can"}
-                    id="caffeine content per can"
+                    data-testid={testIdPrefix + "-caffeine"}
+                    id="caffeine"
                     type="text"
-                    isInvalid={Boolean(errors.description)}
-                    {...register("caffeine content per can", {
-                        required: "Caffeine content per can is required."
+                    isInvalid={Boolean(errors.caffeine)}
+                    {...register("caffeine", {
+                        required: "Caffeine is required."
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
-                    {errors.description?.message}
+                    {errors.caffeine?.message}
                 </Form.Control.Feedback>
             </Form.Group>
 

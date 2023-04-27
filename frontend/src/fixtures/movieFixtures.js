@@ -4,7 +4,7 @@ const movieFixtures = {
       {
        "id": 1,
        "name": "Barbie",
-       "release date": "July 21, 2023",
+       "releasedate": "July 21, 2023",
        "director": "Greta Gerwig"      
       }
     ],
@@ -14,21 +14,21 @@ const movieFixtures = {
         {
             "id": 2,
             "name": "Paddington 2",
-            "release date": "January 12, 2018",
+            "releasedate": "January 12, 2018",
             "director": "Paul King"
         },
 
         {
             "id": 3,
             "name": "Top Gun: Maverick",
-            "release date": "July 21, 2023",
+            "releasedate": "July 21, 2023",
             "director": "Joseph Kosinski"
         },
 
         {
             "id": 4,
             "name": "Boss Baby",
-            "release date": "March 31, 2017",
+            "releasedate": "March 31, 2017",
             "director": "Tom McGrath"  
         },
         

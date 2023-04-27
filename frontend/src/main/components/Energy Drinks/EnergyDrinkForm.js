@@ -56,6 +56,22 @@ function EnergyDrinkForm({ initialContents, submitAction, buttonLabel = "Create"
                     {errors.name?.message}
                 </Form.Control.Feedback>
             </Form.Group>
+            
+            <Form.Group className="mb-3" >
+                <Form.Label htmlFor="caffeine content per can">Description</Form.Label>
+                <Form.Control
+                    data-testid={testIdPrefix + "-caffeine content per can"}
+                    id="caffeine content per can"
+                    type="text"
+                    isInvalid={Boolean(errors.description)}
+                    {...register("caffeine content per can", {
+                        required: "Caffeine content per can is required."
+                    })}
+                />
+                <Form.Control.Feedback type="invalid">
+                    {errors.description?.message}
+                </Form.Control.Feedback>
+            </Form.Group>
 
             <Form.Group className="mb-3" >
                 <Form.Label htmlFor="description">Description</Form.Label>
@@ -73,22 +89,7 @@ function EnergyDrinkForm({ initialContents, submitAction, buttonLabel = "Create"
                 </Form.Control.Feedback>
             </Form.Group>
 
-            <Form.Group className="mb-3" >
-                <Form.Label htmlFor="caffeine content per can">Description</Form.Label>
-                <Form.Control
-                    data-testid={testIdPrefix + "-caffeine content per can"}
-                    id="caffeine content per can"
-                    type="text"
-                    isInvalid={Boolean(errors.description)}
-                    {...register("caffeine content per can", {
-                        required: "Caffeine content per can is required."
-                    })}
-                />
-                <Form.Control.Feedback type="invalid">
-                    {errors.description?.message}
-                </Form.Control.Feedback>
-            </Form.Group>
-
+            
 
             <Button
                 type="submit"

@@ -23,7 +23,7 @@ Default.args = {
 export const Show = Template.bind({});
 
 Show.args = {
-    EnergyDrink: energydrinkFixtures.oneEnergyDrink,
-    submitText: "",
-    submitAction: () => { }
+    initialContents: energydrinkFixtures.oneEnergyDrink[0],
+    buttonLabel: "Update",
+    submitAction:  () => {console.log("Submit was clicked");}
 };

@@ -41,6 +41,7 @@ describe("MovieCreatePage tests", () => {
             "movie": {
                 id: 3,
                 name: "Cinderella",
+                releasedate: "March 13, 2015",
                 director: "Kenneth Branagh"
             }
         });
@@ -56,6 +57,8 @@ describe("MovieCreatePage tests", () => {
         const nameInput = screen.getByLabelText("Name");
         expect(nameInput).toBeInTheDocument();
 
+        const releasedateInput = screen.getByLabelText("Release Date");
+        expect(releasedateInput).toBeInTheDocument();
 
         const directorInput = screen.getByLabelText("Director");
         expect(directorInput).toBeInTheDocument();
@@ -65,6 +68,7 @@ describe("MovieCreatePage tests", () => {
 
         await act(async () => {
             fireEvent.change(nameInput, { target: { value: 'Cinderella' } })
+            fireEvent.change(releasedateInput, { target: { value: 'March 13, 2015' } })
             fireEvent.change(directorInput, { target: { value: 'Kenneth Branagh' } })
             fireEvent.click(createButton);
         });
@@ -75,7 +79,7 @@ describe("MovieCreatePage tests", () => {
         // assert - check that the console.log was called with the expected message
         expect(console.log).toHaveBeenCalled();
         const message = console.log.mock.calls[0][0];
-        const expectedMessage =  `createdMovie: {"movie":{"id":3,"name":"Cinderella","director":"Kenneth Branagh"}`
+        const expectedMessage =  `createdMovie: {"movie":{"id":3,"name":"Cinderella","releasedate":"March 13, 2015","director":"Kenneth Branagh"}`
 
         expect(message).toMatch(expectedMessage);
         restoreConsole();

@@ -24,7 +24,7 @@ jest.mock('main/utils/movieUtils', () => {
                 return {
                     movie: {
                         id: 3,
-                        name: "Cinderella",
+                        name: "Beauty and the Beast",
                         director: "Kenneth Branagh"
                     }
                 }
@@ -59,7 +59,7 @@ describe("MovieEditPage tests", () => {
         );
 
         expect(screen.getByTestId("MovieForm-name")).toBeInTheDocument();
-        expect(screen.getByDisplayValue('Cinderella')).toBeInTheDocument();
+        expect(screen.getByDisplayValue('Beauty and the Beast')).toBeInTheDocument();
         expect(screen.getByDisplayValue('Kenneth Branagh')).toBeInTheDocument();
     });
 
@@ -70,7 +70,8 @@ describe("MovieEditPage tests", () => {
         mockUpdate.mockReturnValue({
             "movie": {
                 id: 3,
-                name: "Cinderella",
+                name: "Beauty and the Beast",
+                releasedate: "March 2, 2017",
                 director: "Kenneth Branagh"
             }
         });
@@ -86,6 +87,8 @@ describe("MovieEditPage tests", () => {
         const nameInput = screen.getByLabelText("Name");
         expect(nameInput).toBeInTheDocument();
 
+        const releasedateInput = screen.getByLabelText("Release Date");
+        expect(releasedateInput).toBeInTheDocument();
 
         const directorInput = screen.getByLabelText("Director");
         expect(directorInput).toBeInTheDocument();
@@ -94,7 +97,8 @@ describe("MovieEditPage tests", () => {
         expect(updateButton).toBeInTheDocument();
 
         await act(async () => {
-            fireEvent.change(nameInput, { target: { value: 'Cinderella' } })
+            fireEvent.change(nameInput, { target: { value: 'Beauty and the Beast' } })
+            fireEvent.change(releasedateInput, { target: { value: 'March 2, 2017' } })
             fireEvent.change(directorInput, { target: { value: 'Kenneth Branagh' } })
             fireEvent.click(updateButton);
         });
@@ -105,7 +109,7 @@ describe("MovieEditPage tests", () => {
         // assert - check that the console.log was called with the expected message
         expect(console.log).toHaveBeenCalled();
         const message = console.log.mock.calls[0][0];
-        const expectedMessage =  `updatedMovie: {"movie":{"id":3,"name":"Cinderella","director":"Kenneth Branagh"}`
+        const expectedMessage =  `updatedMovie: {"movie":{"id":3,"name":"Beauty and the Beast","releasedate":"March 2, 2017","director":"Kenneth Branagh"}`
 
         expect(message).toMatch(expectedMessage);
         restoreConsole();

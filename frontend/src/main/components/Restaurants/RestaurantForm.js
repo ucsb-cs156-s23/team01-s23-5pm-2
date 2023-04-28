@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 function RestaurantForm({ initialContents, submitAction, buttonLabel = "Create" }) {
 
     const navigate = useNavigate();
-    
+
     // Stryker disable all
     const {
         register,
@@ -16,7 +16,7 @@ function RestaurantForm({ initialContents, submitAction, buttonLabel = "Create" 
         { defaultValues: initialContents || {}, }
     );
     // Stryker enable all
-   
+
     const testIdPrefix = "RestaurantForm";
 
     return (
@@ -46,7 +46,7 @@ function RestaurantForm({ initialContents, submitAction, buttonLabel = "Create" 
                     isInvalid={Boolean(errors.name)}
                     {...register("name", {
                         required: "Name is required.",
-                        maxLength : {
+                        maxLength: {
                             value: 30,
                             message: "Max length 30 characters"
                         }

@@ -18,7 +18,7 @@ export default function BookTable({
     testIdPrefix = "BookTable" }) {
 
     const navigate = useNavigate();
- 
+
     const editCallback = (cell) => {
         console.log(`editCallback: ${showCell(cell)})`);
         navigate(`/books/edit/${cell.row.values.id}`)
@@ -52,8 +52,8 @@ export default function BookTable({
             accessor: 'date'
         },
         {
-            Header:'Publisher',
-            accessor: 'publisher' 
+            Header: 'Publisher',
+            accessor: 'publisher'
         }
     ];
 

@@ -12,6 +12,8 @@ import RestaurantDetailsPage from "main/pages/Restaurants/RestaurantDetailsPage"
 
 import BookCreatePage from "main/pages/Books/BookCreatePage";
 import BookEditPage from "main/pages/Books/BookEditPage";
+import BookIndexPage from "main/pages/Books/BookIndexPage";
+import BookDetailsPage from "main/pages/Books/BookDetailsPage";
 
 
 function App() {
@@ -35,6 +37,9 @@ function App() {
 
         <Route exact path="/books/create" element={<BookCreatePage/>}/>
         <Route exact path="/books/edit/:id" element={<BookEditPage/>}/>
+        <Route exact path="/books" element={<BookIndexPage/>}/>
+        <Route exact path="/books/details/:id" element={<BookDetailsPage/>} />
+
       </Routes>
     </BrowserRouter>
   );

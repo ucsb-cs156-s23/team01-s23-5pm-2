@@ -58,14 +58,30 @@ function MovieForm({ initialContents, submitAction, buttonLabel = "Create" }) {
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="description">Description</Form.Label>
+                <Form.Label htmlFor="releasedate">Release Date</Form.Label>
                 <Form.Control
-                    data-testid={testIdPrefix + "-description"}
-                    id="description"
+                    data-testid={testIdPrefix + "-releasedate"}
+                    id="releasedate"
                     type="text"
-                    isInvalid={Boolean(errors.description)}
-                    {...register("description", {
-                        required: "Description is required."
+                    isInvalid={Boolean(errors.releasedate)}
+                    {...register("releasedate", {
+                        required: "Release Date is required."
+                    })}
+                />
+                <Form.Control.Feedback type="invalid">
+                    {errors.description?.message}
+                </Form.Control.Feedback>
+            </Form.Group>
+            
+            <Form.Group className="mb-3" >
+                <Form.Label htmlFor="director">Director</Form.Label>
+                <Form.Control
+                    data-testid={testIdPrefix + "-director"}
+                    id="director"
+                    type="text"
+                    isInvalid={Boolean(errors.director)}
+                    {...register("director", {
+                        required: "Director is required."
                     })}
                 />
                 <Form.Control.Feedback type="invalid">

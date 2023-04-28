@@ -18,7 +18,7 @@ export default function MovieTable({
     testIdPrefix = "MovieTable" }) {
 
     const navigate = useNavigate();
- 
+
     const editCallback = (cell) => {
         console.log(`editCallback: ${showCell(cell)})`);
         navigate(`/movies/edit/${cell.row.values.id}`)

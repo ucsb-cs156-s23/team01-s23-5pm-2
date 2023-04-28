@@ -26,7 +26,7 @@ describe("BookCreatePage tests", () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
-                    <BookCreatePage/>
+                    <BookCreatePage />
                 </MemoryRouter>
             </QueryClientProvider>
         );
@@ -89,7 +89,7 @@ describe("BookCreatePage tests", () => {
         // assert - check that the console.log was called with the expected message
         expect(console.log).toHaveBeenCalled();
         const message = console.log.mock.calls[0][0] + console.log.mock.calls[0][1];
-        const expectedMessage =  `createdBook: {"book":{"id":3,"title":"some mock title","description":"some mock description","author":"some mock author","date":"2023-04-27","publisher":"some mock publisher"}`
+        const expectedMessage = `createdBook: {"book":{"id":3,"title":"some mock title","description":"some mock description","author":"some mock author","date":"2023-04-27","publisher":"some mock publisher"}`
 
         expect(message).toMatch(expectedMessage);
         restoreConsole();

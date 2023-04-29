@@ -3,10 +3,10 @@ import { Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 
-function RestaurantForm({ initialContents, submitAction, buttonLabel = "Create" }) {
+function EnergyDrinkForm({ initialContents, submitAction, buttonLabel = "Create" }) {
 
     const navigate = useNavigate();
-
+    
     // Stryker disable all
     const {
         register,
@@ -16,8 +16,8 @@ function RestaurantForm({ initialContents, submitAction, buttonLabel = "Create" 
         { defaultValues: initialContents || {}, }
     );
     // Stryker enable all
-
-    const testIdPrefix = "RestaurantForm";
+   
+    const testIdPrefix = "EnergyDrinkForm";
 
     return (
 
@@ -46,7 +46,7 @@ function RestaurantForm({ initialContents, submitAction, buttonLabel = "Create" 
                     isInvalid={Boolean(errors.name)}
                     {...register("name", {
                         required: "Name is required.",
-                        maxLength: {
+                        maxLength : {
                             value: 30,
                             message: "Max length 30 characters"
                         }
@@ -54,6 +54,22 @@ function RestaurantForm({ initialContents, submitAction, buttonLabel = "Create" 
                 />
                 <Form.Control.Feedback type="invalid">
                     {errors.name?.message}
+                </Form.Control.Feedback>
+            </Form.Group>
+
+            <Form.Group className="mb-3" >
+                <Form.Label htmlFor="caffeine">Caffeine</Form.Label>
+                <Form.Control
+                    data-testid={testIdPrefix + "-caffeine"}
+                    id="caffeine"
+                    type="text"
+                    isInvalid={Boolean(errors.caffeine)}
+                    {...register("caffeine", {
+                        required: "Caffeine is required."
+                    })}
+                />
+                <Form.Control.Feedback type="invalid">
+                    {errors.caffeine?.message}
                 </Form.Control.Feedback>
             </Form.Group>
 
@@ -73,7 +89,7 @@ function RestaurantForm({ initialContents, submitAction, buttonLabel = "Create" 
                 </Form.Control.Feedback>
             </Form.Group>
 
-
+        
             <Button
                 type="submit"
                 data-testid={testIdPrefix + "-submit"}
@@ -93,4 +109,4 @@ function RestaurantForm({ initialContents, submitAction, buttonLabel = "Create" 
     )
 }
 
-export default RestaurantForm;
+export default EnergyDrinkForm;

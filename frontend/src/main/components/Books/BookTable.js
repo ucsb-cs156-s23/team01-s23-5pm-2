@@ -1,32 +1,32 @@
 import React from "react";
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 import { useNavigate } from "react-router-dom";
-import { movieUtils } from "main/utils/movieUtils";
+import { bookUtils } from "main/utils/bookUtils";
 
 const showCell = (cell) => JSON.stringify(cell.row.values);
 
 
 const defaultDeleteCallback = async (cell) => {
     console.log(`deleteCallback: ${showCell(cell)})`);
-    movieUtils.del(cell.row.values.id);
+    bookUtils.del(cell.row.values.id);
 }
 
-export default function MovieTable({
-    movies,
+export default function BookTable({
+    books,
     deleteCallback = defaultDeleteCallback,
     showButtons = true,
-    testIdPrefix = "MovieTable" }) {
+    testIdPrefix = "BookTable" }) {
 
     const navigate = useNavigate();
 
     const editCallback = (cell) => {
         console.log(`editCallback: ${showCell(cell)})`);
-        navigate(`/movies/edit/${cell.row.values.id}`)
+        navigate(`/books/edit/${cell.row.values.id}`)
     }
 
     const detailsCallback = (cell) => {
         console.log(`detailsCallback: ${showCell(cell)})`);
-        navigate(`/movies/details/${cell.row.values.id}`)
+        navigate(`/books/details/${cell.row.values.id}`)
     }
 
     const columns = [
@@ -36,16 +36,24 @@ export default function MovieTable({
         },
 
         {
-            Header: 'Name',
-            accessor: 'name',
+            Header: 'Title',
+            accessor: 'title',
         },
         {
-            Header: 'Release Date',
-            accessor: 'releasedate',
+            Header: 'Description',
+            accessor: 'description',
         },
         {
-            Header: 'Director',
-            accessor: 'director',
+            Header: 'Author',
+            accessor: 'author'
+        },
+        {
+            Header: 'Date',
+            accessor: 'date'
+        },
+        {
+            Header: 'Publisher',
+            accessor: 'publisher'
         }
     ];
 
@@ -59,7 +67,7 @@ export default function MovieTable({
     const columnsToDisplay = showButtons ? buttonColumns : columns;
 
     return <OurTable
-        data={movies}
+        data={books}
         columns={columnsToDisplay}
         testid={testIdPrefix}
     />;

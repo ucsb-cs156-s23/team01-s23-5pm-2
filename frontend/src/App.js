@@ -11,6 +11,11 @@ import RestaurantIndexPage from "main/pages/Restaurants/RestaurantIndexPage";
 import RestaurantDetailsPage from "main/pages/Restaurants/RestaurantDetailsPage";
 import MovieIndexPage from "main/pages/Movies/MovieIndexPage";
 import MovieDetailsPage from "main/pages/Movies/MovieDetailsPage";
+import BookCreatePage from "main/pages/Books/BookCreatePage";
+import BookEditPage from "main/pages/Books/BookEditPage";
+import BookIndexPage from "main/pages/Books/BookIndexPage";
+import BookDetailsPage from "main/pages/Books/BookDetailsPage";
+
 
 function App() {
 
@@ -30,9 +35,15 @@ function App() {
         <Route exact path="/restaurants/edit/:id" element={<RestaurantEditPage />} />
         <Route exact path="/restaurants/details/:id" element={<RestaurantDetailsPage />} />
         <Route exact path="/restaurants/" element={<RestaurantIndexPage />} />
+        
         <Route exact path="/movies" element={<MovieIndexPage/>} />
         <Route exact path="/movies/details/:id" element={<MovieDetailsPage/>} />
-      
+     
+        <Route exact path="/books/create" element={<BookCreatePage/>}/>
+        <Route exact path="/books/edit/:id" element={<BookEditPage/>}/>
+        <Route exact path="/books" element={<BookIndexPage/>}/>
+        <Route exact path="/books/details/:id" element={<BookDetailsPage/>} />
+
       </Routes>
     </BrowserRouter>
   );
